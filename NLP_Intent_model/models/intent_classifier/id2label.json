@@ -1,6 +1,8 @@
 {
   "0": "balance_inquiry",
-  "1": "loan_query",
-  "2": "money_transfer",
-  "3": "set_reminder"
+  "1": "greeting",
+  "2": "help",
+  "3": "loan_query",
+  "4": "money_transfer",
+  "5": "set_reminder"
 }

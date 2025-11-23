@@ -10,16 +10,20 @@
   "hidden_dim": 3072,
   "id2label": {
     "0": "balance_inquiry",
-    "1": "loan_query",
-    "2": "money_transfer",
-    "3": "set_reminder"
+    "1": "greeting",
+    "2": "help",
+    "3": "loan_query",
+    "4": "money_transfer",
+    "5": "set_reminder"
   },
   "initializer_range": 0.02,
   "label2id": {
     "balance_inquiry": 0,
-    "loan_query": 1,
-    "money_transfer": 2,
-    "set_reminder": 3
+    "greeting": 1,
+    "help": 2,
+    "loan_query": 3,
+    "money_transfer": 4,
+    "set_reminder": 5
   },
   "max_position_embeddings": 512,
   "model_type": "distilbert",
