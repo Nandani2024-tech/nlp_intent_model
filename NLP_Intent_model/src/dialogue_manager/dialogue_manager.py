@@ -80,6 +80,7 @@ class DialogueManager:
         return self.handle_nlu_output(intent, entities_dict, confidence)
 
 
+
     def handle_nlu_output(self, intent, entities, confidence=1.0):
         if confidence < 0.40:
             self.fallback.increment_fallback_count()
@@ -152,12 +153,14 @@ class DialogueManager:
                 details = get_loan_details(loan_id)
                 loan_amount = self.slots.get_slot("loan_amount") or details["remaining_amount"]
                 loan_date = self.slots.get_slot("loan_date") or details["next_due"]
+                spoken_loan_id = " ".join(details['loan_id'].upper())
                 msg = (
-                    f"Loan ID: {details['loan_id']}\n"
-                    f"Remaining amount: ₹{loan_amount}\n"
-                    f"Interest rate: {details['interest_rate']}\n"
-                    f"Next EMI due: {loan_date}"
+                    f"Loan status for Loan I D {spoken_loan_id}. "
+                    f"Remaining amount is rupees {loan_amount}. "
+                    f"Interest rate is {details['interest_rate']} percent. "
+                    f"Your next E M I is due on {loan_date}."
                 )
+
             else:
                 msg = POLICY[intent]["success_message"].format(**self.slots.slots)
         except KeyError:

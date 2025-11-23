@@ -49,7 +49,15 @@
       "Account balance bataye.",
       "Mera paisa kitna hai?",
       "Tell me the remaining funds.",
-      "Show me how much is left."
+      "Show me how much is left.",
+      "I want to only check balance, not transfer.",
+      "Tell me my balance, I don't want to send money.",
+      "Just check balance, no transfer.",
+      "Don't transfer anything, just show available funds.",
+      "Balance check karna hai, kisi ko bhejna nahi.",
+      "How much money is in my account, not asking to transfer.",
+      "Show my balance only.",
+      "I am not sending money, I only want to know my balance."
     ]
   },
 
@@ -148,7 +156,17 @@
       "Pay 400 to this number 9876712345",
       "Transfer 1800 to 9022334455",
       "Send money to 9876123456",
-      "Move 2000 to phone number 9988776655"
+      "Move 2000 to phone number 9988776655",
+      "I don't want to transfer money now.",
+      "No transfer needed.",
+      "Don't send money to anyone.",
+      "Cancel transfer request.",
+      "Stop money transfer.",
+      "I am not sending money right now.",
+      "I don't want to move funds.",
+      "Don't pay anyone.",
+      "No, I don't want to send 100.",
+      "I want to check something else, not transfer."
     ]
   },
 
@@ -203,7 +221,13 @@
       "Pending loan amount kya hai?",
       "Show full loan details.",
       "Loan kitna reh gaya?",
-      "When is EMI due next?"
+      "When is EMI due next?",
+      "Tell me loan details only, no transfer.",
+      "I don't want to send money, just show EMI info.",
+      "Loan status batao, transfer nahi karna.",
+      "What is my EMI, not asking to send money.",
+      "I'm not transferring funds, I only need loan summary.",
+      "Loan ka status check karna hai, kisi ko bhejna nahi."
     ]
   },
 

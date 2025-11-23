@@ -35,9 +35,7 @@ AMOUNT_PATTERN = re.compile(
 ACCOUNT_TYPE_PATTERN = re.compile(r"\b(savings?|current)\b", flags=re.IGNORECASE)
 UPI_PATTERN = re.compile(r"\b[A-Za-z0-9.\-_]{2,256}@[A-Za-z]{2,}\b")
 # Indian phone number pattern (10 digits, optional country code +91 or 0)
-PHONE_NUMBER_PATTERN = re.compile(
-    r"\b(?:\+91|0)?[6789]\d{9}\b"
-)
+PHONE_PATTERN = re.compile(r"[0-9][0-9\s\-\(\)]{6,20}[0-9]") 
 
 LAST4_PATTERN = re.compile(r"\b(?:\d{4})\b")
 DATE_SIMPLE_PATTERN = re.compile(
@@ -195,29 +193,39 @@ def extract_dates_regex(text):
 
 
 def extract_phone_number_regex(text):
-    results = []
-    for m in PHONE_NUMBER_PATTERN.finditer(text):
-        results.append({
-            "entity": "phone_number",
-            "value": m.group(),
-            "start": m.start(),
-            "end": m.end()
-        })
-    return results
+    entities = []
+    for match in PHONE_PATTERN.finditer(text):
+        raw = match.group()
+        normalized = re.sub(r"[^0-9]", "", raw)   # remove spaces, dashes, brackets etc.
+
+        # validate number length
+        if 7 <= len(normalized) <= 14:
+            entities.append({
+                "entity": "phone_number",
+                "value": raw,
+                "normalized": normalized,
+                "start": match.start(),
+                "end": match.end(),
+            })
+    return entities
 
 
-LOAN_ID_PATTERN = re.compile(r"\b[a-zA-Z]{2,10}\d{2,10}\b")  # Example pattern, tweak for your formats
+LOAN_ID_PATTERN = re.compile(r"\b(?:[a-zA-Z]\s?){2,10}(?:\d\s?){2,10}\b"
+)  # Example pattern, tweak for your formats
 
 def extract_loan_id_regex(text):
     results = []
     for m in LOAN_ID_PATTERN.finditer(text):
+        raw = m.group()
+        normalized = raw.replace(" ", "")   # remove space between loan and 123
         results.append({
             "entity": "loan_id",
-            "value": m.group(),
+            "value": normalized,
             "start": m.start(),
             "end": m.end()
         })
     return results
+
 
 
 

@@ -1,3 +1,5 @@
+from src.utils.text_formatter import spell_out_digits
+
 class SlotManager:
     def __init__(self):
         self.slots = {
@@ -7,6 +9,7 @@ class SlotManager:
             "account_type": None,
             "recipient": None,
             "phone_number": None,
+            "phone_number_spelled": None,
             "credit_card_number": None,
             "loan_id": None,
             "bank_branch": None,
@@ -21,6 +24,10 @@ class SlotManager:
         for ent, value in entities.items():
             if ent in self.slots:
                 self.slots[ent] = value
+
+                 # NEW: auto-generate spoken phone number for TTS
+                if ent == "phone_number" and value:
+                    self.slots["phone_number_spelled"] = spell_out_digits(str(value))
 
     def missing_slots(self, required):
         """Return list of required slots that are missing."""
