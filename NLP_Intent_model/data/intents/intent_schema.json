@@ -10,6 +10,7 @@
     "open_account",
     "greeting",
     "goodbye",
-    "fallback"
+    "fallback", 
+    "help"
   ]
 }

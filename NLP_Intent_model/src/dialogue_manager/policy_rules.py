@@ -25,5 +25,22 @@ POLICY = {
         "required_slots": ["date"],
         "success_message": "I've set a reminder for {date}.",
     },
+    "greeting": {
+    "required_slots": [],
+    "success_message": "Hello! How can I assist you today?"
+    },
+    "help": {
+    "required_slots": [],
+    "success_message": (
+        "Sure! I can help with:\n"
+        "- Money transfer\n"
+        "- Checking balance\n"
+        "- Loan status inquiries\n"
+        "- Setting reminders\n\n"
+        "Just tell me what you want to do."
+    ),
+}
+
+
 }
 

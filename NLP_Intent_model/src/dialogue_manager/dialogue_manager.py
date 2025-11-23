@@ -88,6 +88,20 @@ class DialogueManager:
 
         self.fallback.reset_fallback_count()
 
+        if intent == "help":
+            return (
+                "Sure! Here’s what you can say:\n"
+                "- \"Transfer 2000 to 9876543210\"\n"
+                "- \"What's my savings balance?\"\n"
+                "- \"Check my loan status\"\n"
+                "- \"Set a reminder for tomorrow\"\n"
+                "\nYou can continue anytime."
+            )
+
+        if intent == "greeting":
+            self._reset_conversation()
+            return "Hello! How can I assist you today?"
+
         if self.conversation_active and self.current_intent and intent != self.current_intent:
             if self._is_continuation(intent, entities):
                 intent = self.current_intent
