@@ -1,0 +1,19 @@
+entities:
+  amount:
+    examples:
+      - "500"
+      - "2000"
+      - "300"
+  person_name:
+    examples:
+      - "Rahul"
+      - "Ankit"
+  account_type:
+    examples:
+      - "savings account"
+      - "current account"
+  date:
+    examples:
+      - "tomorrow"
+      - "next Monday"
+      - "today"

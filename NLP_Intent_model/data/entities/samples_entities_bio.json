@@ -1,0 +1,10 @@
+[
+  {
+    "tokens": ["transfer", "five", "hundred", "rupees", "to", "rahul"],
+    "ner_tags": ["O", "B-amount", "I-amount", "I-amount", "O", "B-person"]
+  },
+  {
+    "tokens": ["pay", "2000", "to", "account", "ending", "1234"],
+    "ner_tags": ["O", "B-amount", "O", "O", "O", "B-last4"]
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "entities": [
+    "account_type",
+    "amount",
+    "date",
+    "recipient",
+    "upi_id",
+    "phone_number",
+    "credit_card_number",
+    "loan_id",
+    "bank_branch"
+  ]
+}

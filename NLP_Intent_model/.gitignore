@@ -1,0 +1,37 @@
+notes.txt
+
+# Virtual envs / Python caches
+venv/
+.env/
+.env.local
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.cache/
+.pytest_cache/
+
+# Editors / OS junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Model + data artifacts
+models/**/checkpoint-*/
+models/**/optimizer.pt
+models/**/scheduler.pt
+models/**/trainer_state.json
+models/**/training_args.bin
+*.safetensors
+*.bin
+
+# Logs / outputs
+logs/
+*.log
+*.tmp
+
+# Notebooks checkpoints
+.ipynb_checkpoints/

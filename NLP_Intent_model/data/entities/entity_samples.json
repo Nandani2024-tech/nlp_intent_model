@@ -1,0 +1,24 @@
+{
+  "amount": [
+    "500 rupees",
+    "₹1000",
+    "200",
+    "Ten thousand"
+  ],
+  "date": [
+    "tomorrow",
+    "next monday",
+    "25th December",
+    "in two days"
+  ],
+  "recipient": [
+    "Rohan",
+    "Amit",
+    "Sneha"
+  ],
+  "account_type": [
+    "savings",
+    "current",
+    "salary account"
+  ]
+}

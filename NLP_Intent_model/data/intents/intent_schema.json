@@ -1,0 +1,15 @@
+{
+  "intents": [
+    "check_balance",
+    "transfer_money",
+    "transaction_history",
+    "loan_status",
+    "credit_card_bill",
+    "set_reminder",
+    "branch_info",
+    "open_account",
+    "greeting",
+    "goodbye",
+    "fallback"
+  ]
+}
