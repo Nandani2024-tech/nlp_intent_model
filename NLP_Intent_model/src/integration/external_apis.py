@@ -41,26 +41,26 @@ class BankingAPI:
             "status": "success"
         }
     
-    def transfer_funds(self, amount: float, upi_id: str, user_id: str) -> Dict[str, Any]:
+    def transfer_funds(self, amount: float, phone_number: str, user_id: str) -> Dict[str, Any]:
         """
-        Transfer funds to UPI ID.
+        Transfer funds to PHONE NUMBER.
         
         Args:
             amount: Transfer amount
-            upi_id: Recipient UPI ID
+            phone_number: Recipient Phone Number
             user_id: User identifier
         
         Returns:
             Dict with transfer status
         """
         # TODO: Implement actual API call in Day 7+
-        logger.info(f"Transferring {amount} to {upi_id} for user {user_id}")
+        logger.info(f"Transferring {amount} to {phone_number} for user {user_id}")
         return {
             "amount": amount,
-            "recipient": upi_id,
+            "recipient": phone_number,
             "transaction_id": "TXN123456789",
             "status": "success",
-            "message": f"Successfully transferred ₹{amount} to {upi_id}"
+            "message": f"Successfully transferred ₹{amount} to {phone_number}"
         }
     
     def get_loan_info(self, loan_id: Optional[str] = None, user_id: str = None) -> Dict[str, Any]:
@@ -144,10 +144,10 @@ def check_balance(account_type: str, user_id: str = "default") -> Dict[str, Any]
     return api.check_balance(account_type, user_id)
 
 
-def transfer_funds(amount: float, upi_id: str, user_id: str = "default") -> Dict[str, Any]:
-    """Convenience function to transfer funds."""
+def transfer_funds(amount: float, phone_number: str, user_id: str = "default") -> Dict[str, Any]:
     api = get_banking_api()
-    return api.transfer_funds(amount, upi_id, user_id)
+    return api.transfer_funds(amount, phone_number, user_id)
+
 
 
 def get_loan_info(loan_id: Optional[str] = None, user_id: str = "default") -> Dict[str, Any]:

@@ -1,8 +1,9 @@
 POLICY = {
     "money_transfer": {
-        "required_slots": ["amount", "upi_id"],
-        "success_message": "Transferring {amount} to {upi_id}.",
+    "required_slots": ["amount", "phone_number"],
+    "success_message": "Transferring {amount} to {phone_number}.",
     },
+
     "balance_inquiry": {
         "required_slots": ["account_type"],
         "success_message": "Your {account_type} account balance is ₹82,500.",

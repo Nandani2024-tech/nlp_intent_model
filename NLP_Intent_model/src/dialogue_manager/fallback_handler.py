@@ -20,10 +20,11 @@ class FallbackHandler:
                 "default": "How much do you want to transfer?",
                 "with_context": "What amount would you like to transfer?"
             },
-            "upi_id": {
-                "default": "Please share the UPI ID or recipient details.",
-                "with_context": "To whom should I transfer? Please provide UPI ID."
+            "phone_number": {
+                "default": "Please share the phone number of the recipient.",
+                "with_context": "To whom should I transfer? Please provide the phone number."
             },
+
             "date": {
                 "default": "On which date?",
                 "with_context": "When would you like this reminder set?"

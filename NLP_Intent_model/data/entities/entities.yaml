@@ -16,4 +16,10 @@ entities:
     examples:
       - "tomorrow"
       - "next Monday"
-      - "today"
+      - "today"  
+  phone_number:
+  examples:
+    - "9876543210"
+    - "+919876543210"
+    - "09876543210"
+

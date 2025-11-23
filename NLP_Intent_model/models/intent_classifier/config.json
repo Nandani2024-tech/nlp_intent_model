@@ -12,16 +12,14 @@
     "0": "balance_inquiry",
     "1": "loan_query",
     "2": "money_transfer",
-    "3": "provide_pin",
-    "4": "set_reminder"
+    "3": "set_reminder"
   },
   "initializer_range": 0.02,
   "label2id": {
     "balance_inquiry": 0,
     "loan_query": 1,
     "money_transfer": 2,
-    "provide_pin": 3,
-    "set_reminder": 4
+    "set_reminder": 3
   },
   "max_position_embeddings": 512,
   "model_type": "distilbert",

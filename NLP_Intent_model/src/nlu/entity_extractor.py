@@ -34,6 +34,11 @@ AMOUNT_PATTERN = re.compile(
 )
 ACCOUNT_TYPE_PATTERN = re.compile(r"\b(savings?|current)\b", flags=re.IGNORECASE)
 UPI_PATTERN = re.compile(r"\b[A-Za-z0-9.\-_]{2,256}@[A-Za-z]{2,}\b")
+# Indian phone number pattern (10 digits, optional country code +91 or 0)
+PHONE_NUMBER_PATTERN = re.compile(
+    r"\b(?:\+91|0)?[6789]\d{9}\b"
+)
+
 LAST4_PATTERN = re.compile(r"\b(?:\d{4})\b")
 DATE_SIMPLE_PATTERN = re.compile(
     r"\b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}(?=[^\d]|$)"  # Dates like 12/03/2023
@@ -189,11 +194,11 @@ def extract_dates_regex(text):
 
 
 
-def extract_upi_regex(text):
+def extract_phone_number_regex(text):
     results = []
-    for m in UPI_PATTERN.finditer(text):
+    for m in PHONE_NUMBER_PATTERN.finditer(text):
         results.append({
-            "entity": "upi_id",
+            "entity": "phone_number",
             "value": m.group(),
             "start": m.start(),
             "end": m.end()
@@ -399,8 +404,9 @@ def predict_entities(text: str, use_token_classifier: bool = False) -> List[Dict
         date_spans.update(range(de["start"], de["end"]))
     ents.extend(date_ents)
     
-    # Extract UPI (shouldn't conflict with dates)
-    ents.extend(extract_upi_regex(text))
+    # Extract phone numbers (shouldn't conflict with dates)
+    ents.extend(extract_phone_number_regex(text))
+
     
     # Extract amounts, but exclude those that overlap with dates
     amount_ents = extract_amounts_regex(text)
@@ -436,7 +442,8 @@ def predict_entities(text: str, use_token_classifier: bool = False) -> List[Dict
 
     # deduplicate overlapping entities with priority: date > upi > amount > last4 > token-classifier
     # Priority order for entity types
-    priority_order = {"date": 0, "upi_id": 1, "amount": 2, "last4": 3, "account_type": 4}
+    priority_order = {"date": 0, "phone_number": 1, "amount": 2, "last4": 3, "account_type": 4}
+
     
     ents_sorted = sorted(ents, key=lambda e: (
         e["start"],

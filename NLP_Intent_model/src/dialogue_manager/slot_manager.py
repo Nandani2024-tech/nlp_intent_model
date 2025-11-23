@@ -2,7 +2,7 @@ class SlotManager:
     def __init__(self):
         self.slots = {
             "amount": None,
-            "upi_id": None,
+            "phone_number": None,
             "date": None,
             "account_type": None,
             "recipient": None,

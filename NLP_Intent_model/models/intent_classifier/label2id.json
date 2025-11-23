@@ -2,6 +2,5 @@
   "balance_inquiry": 0,
   "loan_query": 1,
   "money_transfer": 2,
-  "provide_pin": 3,
-  "set_reminder": 4
+  "set_reminder": 3
 }
